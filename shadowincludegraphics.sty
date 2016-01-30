@@ -1,0 +1,34 @@
+% Balazs Kocso shadowincludegraphics command for LaTeX
+%
+% Balazs Kocso, 2016
+%
+% Changelog:
+%
+% Version 1.0:
+%   First version.
+
+\ProvidesPackage{shadowincludegraphics}[2016/01/11]
+
+% Required packages
+\RequirePackage{graphicx}
+\RequirePackage{tikz}
+
+\usetikzlibrary{calc}
+
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+
+\newcommand{\shadowincludegraphics}[7][]% includegraphics args, file name, fill color, shadow color, width, inner radius, steps
+{   \makebox[\linewidth]{
+	\begin{tikzpicture}
+        \node[rounded corners=#6 cm, inner sep=#6 cm, fill=#3] (temppicnode) {\includegraphics[#1]{#2}};
+        \begin{pgfonlayer}{background}
+            \foreach \x [evaluate=\x] in {1,...,#7}
+            {
+                \pgfmathsetmacro{\mycorners}{#5+ #6 -\x*#5/#7}
+                \fill[rounded corners=\mycorners cm, #4, opacity=.04] ($(temppicnode.south west)+(-#5+\x*#5/#7,-#5+\x*#5/#7)$) rectangle ($(temppicnode.north east)+(#5-\x*#5/#7,#5-\x*#5/#7)$);
+            }
+        \end{pgfonlayer}
+    \end{tikzpicture}
+    }
+}

@@ -1,0 +1,87 @@
+\documentclass[aspectratio=43]{beamer}
+%\documentclass[aspectratio=169]{beamer} % Change to 16:9 aspect ratio 
+% These packages are included autmatically width beamer:
+% graphicx, amsthm, xcolor, enumerate, hyperref
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[magyar]{babel}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{comment}
+\usepackage{pifont}
+\usepackage{shadowincludegraphics}
+
+\usetheme{Genteel}
+
+\newcommand{\checked}{\textcolor{green}{\ding{51}}}
+\newcommand{\unchecked}{\textcolor{red}{\ding{55}}}
+
+\begin{comment} % Own titlepage layout if needed
+\setbeamerfont{author}{size = \Huge}
+\setbeamerfont{subtitle}{size = \small}
+\defbeamertemplate*{title page}{customized}[1][] {
+\begin{center}
+{\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute}
+	\bigskip
+	\bigskip
+	\bigskip
+	\begin{beamercolorbox}[ht = 5.25ex, center, dp = 1ex]{title}
+	\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle
+	\end{beamercolorbox}
+	\bigskip
+	\bigskip
+	{\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor}\par
+	\bigskip
+	\bigskip
+	\bigskip
+	{\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate}\par
+	\medskip
+	{\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}
+\end{center}}
+\end{comment}
+
+\author{Kócsó Balázs}
+\title{\LaTeX\ template}
+\subtitle{}
+\institute[]{
+  \mbox{}\\ \bigskip
+  \resizebox{6cm}{!}{\includegraphics{bme_logo_white.png}} \\
+}
+%\year=2016 \month=1 \day=30 %Date of the presentation
+
+
+\begin{document}
+
+\begin{frame}[plain, noframenumbering]
+\titlepage
+\end{frame}
+
+\begin{frame}[c]
+\frametitle{Kép beszúrása}
+\begin{center}
+\shadowincludegraphics[width=0.9\textwidth]{figures/picture.jpg}{white}{black}{0.5}{0.2}{10}
+\end{center}
+\end{frame}
+
+\begin{frame}[c]
+\frametitle{Köszönöm a figyelmet!}
+\begin{center}
+\Huge
+Kérdések?
+\end{center}
+\end{frame}
+
+% Backup slides
+\newcounter{finalframe}
+\setcounter{finalframe}{\value{framenumber}}
+
+\begin{frame}[t]
+\frametitle{Lorem ipsum}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis mauris id dui facilisis, nec luctus velit porta. Praesent dictum quis ipsum vel convallis. Nam eget metus felis. Etiam porttitor felis justo, at interdum erat molestie id. Vivamus commodo diam nunc, vel bibendum ante mollis et. Etiam interdum augue vitae mauris faucibus, eu commodo sapien dignissim. Ut tincidunt dapibus felis quis interdum. Nunc at justo pulvinar, faucibus diam ac, interdum nunc.
+\end{frame}
+
+\setcounter{framenumber}{\value{finalframe}}
+\end{document}

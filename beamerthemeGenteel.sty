@@ -1,0 +1,58 @@
+% Balazs Kocso "Genteel" presentation theme for beamer
+%
+% Balazs Kocso, 2016
+%
+% Changelog:
+%
+% Version 1.0:
+%   First version.
+
+\ProvidesPackage{beamerthemeGenteel}[2016/01/11]
+
+\mode<presentation>
+
+% Required packages
+\RequirePackage{mathpazo} % Use any fonts you like.
+
+%Background image
+\setbeamertemplate{background canvas}{
+    \includegraphics[width=\paperwidth, height=\paperheight]{GenteelBg.png}
+}
+
+% Inner theme
+\useinnertheme{default}
+
+% Outer theme
+\useoutertheme{default}
+\setbeamertemplate{navigation symbols}{} % No navigation symbols
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth, ht=2.25ex, dp=1ex, center]{structure in head/foot}%
+    \usebeamerfont{structure in head/foot}\insertauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth, ht=2.25ex, dp=1ex, center]{structure in head/foot}%
+    \usebeamerfont{structure in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth, ht=2.25ex, dp=1ex, right]{structure in head/foot}%
+    \usebeamerfont{structure in head/foot}\insertshortdate{}\hspace*{4em}
+    \insertframenumber{}/\inserttotalframenumber \hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+% Font theme
+\usefonttheme{structuresmallcapsserif}
+\usefonttheme{serif}
+\setbeamerfont{structure}{family = \rmfamily}
+\setbeamerfont{title}{size = \LARGE}
+\setbeamerfont{author}{size = \LARGE, shape = \scshape, series = \bfseries}
+\setbeamerfont{date}{shape = \scshape}
+
+% Color theme
+\usecolortheme[named = white]{structure}
+\setbeamercolor{normal text}{fg = white}
+
+\mode
+<all>
